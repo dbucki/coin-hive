@@ -17,3 +17,16 @@ const CoinHive = require('coin-hive');
     Accepted hashes: ${data.acceptedHashes}
   `));
 })();
+
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
+var http = require('http');
+
+var server = http.createServer(function(req, res) {
+  res.writeHead(200);
+  res.end('Hello Http');
+});
+
+server.listen(port);
